@@ -16,7 +16,7 @@ export async function GET() {
 
     const averageRating =
       ratings.length > 0
-        ? ratings.reduce((sum: number, r) => sum + r.value, 0) / ratings.length
+        ? ratings.reduce((sum: number, r: { value: number }) => sum + r.value, 0) / ratings.length
         : 0;
 
     return NextResponse.json({
