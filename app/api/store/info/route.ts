@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
 
     const averageRating =
       allRatings.length > 0
-        ? allRatings.reduce((sum: number, r) => sum + r.value, 0) / allRatings.length
+        ? allRatings.reduce((sum: number, r: { value: number }) => sum + r.value, 0) / allRatings.length
         : 0;
 
     return NextResponse.json({

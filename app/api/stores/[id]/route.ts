@@ -43,7 +43,7 @@ export async function GET(
     // Calculate average rating
     const averageRating =
       store.ratings.length > 0
-        ? store.ratings.reduce((sum: number, r) => sum + r.value, 0) / store.ratings.length
+        ? store.ratings.reduce((sum: number, r: { value: number }) => sum + r.value, 0) / store.ratings.length
         : 0;
 
     // Get user's rating if logged in
