@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(newPassword)) {
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(newPassword)) {
       return NextResponse.json(
         { message: "Password must contain at least one special character" },
         { status: 400 }

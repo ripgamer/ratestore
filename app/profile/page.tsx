@@ -9,10 +9,10 @@ import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Mail, User, MapPin, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ProfilePage() {
-  const { user, loading } = useAuth();
+  const { user, loading, refreshUser } = useAuth();
   const router = useRouter();
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
@@ -20,10 +20,21 @@ export default function ProfilePage() {
   const [success, setSuccess] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
-    name: user?.name || "",
-    email: user?.email || "",
-    address: user?.address || "",
+    name: "",
+    email: "",
+    address: "",
   });
+
+  // Update form data when user data loads
+  useEffect(() => {
+    if (user) {
+      setFormData({
+        name: user.name || "",
+        email: user.email || "",
+        address: user.address || "",
+      });
+    }
+  }, [user]);
 
   if (loading) {
     return (
@@ -50,15 +61,48 @@ export default function ProfilePage() {
     setError(null);
     setSuccess(null);
 
+    // Validate inputs
+    if (!formData.name || !formData.address) {
+      setError("Name and address are required");
+      setIsSaving(false);
+      return;
+    }
+
+    if (formData.name.length < 2 || formData.name.length > 60) {
+      setError("Name must be between 2 and 60 characters");
+      setIsSaving(false);
+      return;
+    }
+
+    if (formData.address.length > 400) {
+      setError("Address must not exceed 400 characters");
+      setIsSaving(false);
+      return;
+    }
+
     try {
-      // In a real application, you would call an API endpoint to update the profile
-      // For now, we'll just show a success message
+      const response = await fetch("/api/profile", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          address: formData.address,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to update profile");
+      }
+
       setSuccess("Profile updated successfully!");
       setIsEditing(false);
-
-      // You would typically call: await fetch('/api/profile', { method: 'PUT', body: JSON.stringify(formData) })
+      
+      // Refresh user data from server
+      await refreshUser();
     } catch (err) {
-      setError("Failed to update profile. Please try again.");
+      setError(err instanceof Error ? err.message : "Failed to update profile. Please try again.");
     } finally {
       setIsSaving(false);
     }

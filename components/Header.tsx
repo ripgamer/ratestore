@@ -11,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Store, LogOut, LayoutDashboard, ShoppingBag, Menu, X } from "lucide-react";
+import { Store, LogOut, LayoutDashboard, ShoppingBag, Menu, X, Search } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -51,10 +51,15 @@ export function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-1">
           {user?.role === "NORMAL_USER" && (
-            <Link href="/user/stores" className={navLinkClass(isActive("/user/stores"))}>
-              <ShoppingBag className="h-4 w-4" />
-              Browse Stores
-            </Link>
+            <>
+              <Link href="/user/stores" className={navLinkClass(isActive("/user/stores"))}>
+                <ShoppingBag className="h-4 w-4" />
+                Browse Stores
+              </Link>
+              <Link href="/user/stores" className={navLinkClass(false)}>
+                <Search className="h-4 w-4" />
+              </Link>
+            </>
           )}
 
           {user?.role === "SYSTEM_ADMIN" && (

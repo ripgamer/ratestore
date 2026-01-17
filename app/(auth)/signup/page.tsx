@@ -35,7 +35,7 @@ export default function SignupPage() {
   const validateField = (name: string, value: string): string | undefined => {
     switch (name) {
       case "name":
-        if (value.length < 20) return "Name must be at least 20 characters";
+        if (value.length < 2) return "Name must be at least 2 characters";
         if (value.length > 60) return "Name must not exceed 60 characters";
         break;
       case "email":
@@ -229,7 +229,7 @@ export default function SignupPage() {
                 {
                   name: "name",
                   label: "Full Name",
-                  placeholder: "Enter your full name (20-60 characters)",
+                  placeholder: "Enter your full name (2-60 characters)",
                   type: "text",
                 },
                 {

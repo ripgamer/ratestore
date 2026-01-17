@@ -57,7 +57,7 @@ export default function ChangePasswordPage() {
       errors.push("Password must contain at least one uppercase letter");
     }
 
-    if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
       errors.push("Password must contain at least one special character");
     }
 
@@ -124,7 +124,7 @@ export default function ChangePasswordPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.message || "Failed to change password");
+        setError(data.message || data.error || "Failed to change password");
         return;
       }
 
