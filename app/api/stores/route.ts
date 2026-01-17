@@ -16,7 +16,7 @@ export async function GET() {
     });
 
     // Calculate average rating for each store
-    const storesWithRating = stores.map((store) => {
+    const storesWithRating = stores.map((store: typeof stores[number]) => {
       const avgRating =
         store.ratings.length > 0
           ? store.ratings.reduce((sum: number, r: { value: number }) => sum + r.value, 0) / store.ratings.length
