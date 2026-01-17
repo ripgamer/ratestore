@@ -4,6 +4,8 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+pnpmfileChecksum: sha256-wDii/dCJ7JHyFM6v82Ce7c496DulaEKyCHNGKxixj7M=
+
 importers:
 
   .:
@@ -71,6 +73,9 @@ importers:
       tsparticles:
         specifier: ^3.9.1
         version: 3.9.1
+      tsparticles-engine:
+        specifier: ^2.12.0
+        version: 2.12.0
       tsparticles-slim:
         specifier: ^2.12.0
         version: 2.12.0
