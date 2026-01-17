@@ -191,3 +191,34 @@
     letter-spacing: var(--tracking-normal);
   }
 }
+
+@layer components {
+  .glassmorphism {
+    @apply backdrop-blur-md bg-white/40 border border-gray-300/50 dark:bg-gray-900/40 dark:border-white/15;
+  }
+
+  .glassmorphism-light {
+    @apply backdrop-blur-md bg-white/50 border border-gray-300/70 dark:bg-gray-800/40 dark:border-white/15;
+  }
+
+  .glassmorphism-card {
+    @apply backdrop-blur-lg bg-white/60 border border-gray-300/60 rounded-2xl dark:bg-gray-800/30 dark:border-white/15;
+  }
+
+  .dark-gradient {
+    @apply bg-gradient-to-br from-gray-950 via-gray-900 to-black;
+  }
+
+  .light-gradient {
+    @apply bg-gradient-to-br from-white via-gray-50 to-white;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
