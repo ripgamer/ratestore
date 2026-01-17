@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AuthProvider } from "@/components/providers/AuthProvider";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { Header } from "@/components/Header";
 import { FloatingDock } from "@/components/FloatingDock";
 import "./globals.css";
 
@@ -28,11 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-white transition-colors duration-300`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-slate-950 text-gray-900 dark:text-white transition-colors duration-300`}
       >
         <ThemeProvider>
           <AuthProvider>
             <div className="relative z-10">
+              <Header />
               <FloatingDock />
               {children}
             </div>

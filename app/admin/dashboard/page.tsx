@@ -49,10 +49,10 @@ export default function AdminDashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
       {/* Header Section */}
-      <div className="relative overflow-hidden border-b border-gray-300/50 dark:border-white/10">
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/10 to-purple-600/10 dark:from-indigo-600/20 dark:to-purple-600/20"></div>
+      <div className="relative overflow-hidden border-b border-gray-200 dark:border-slate-800">
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/5 to-purple-600/5 dark:from-indigo-600/20 dark:to-purple-600/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex items-center justify-between">
             <div>
@@ -74,7 +74,7 @@ export default function AdminDashboardPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {/* Total Users - Large Card */}
           <div className="lg:col-span-1 h-full">
-            <div className="h-full p-6 rounded-2xl glassmorphism hover:shadow-lg transition-all duration-300 border border-white/30 dark:border-white/10 group cursor-pointer">
+            <div className="h-full p-6 rounded-2xl bg-white dark:bg-slate-900 hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-700 group cursor-pointer">
               <div className="flex items-start justify-between mb-4">
                 <div className="text-5xl">👥</div>
                 <ArrowUpRight className="h-5 w-5 text-green-500 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -87,7 +87,7 @@ export default function AdminDashboardPage() {
 
           {/* Total Stores - Large Card */}
           <div className="lg:col-span-1 h-full">
-            <div className="h-full p-6 rounded-2xl glassmorphism hover:shadow-lg transition-all duration-300 border border-white/30 dark:border-white/10 group cursor-pointer">
+            <div className="h-full p-6 rounded-2xl bg-white dark:bg-slate-900 hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-slate-800 hover:border-green-300 dark:hover:border-green-700 group cursor-pointer">
               <div className="flex items-start justify-between mb-4">
                 <div className="text-5xl">🏪</div>
                 <ArrowUpRight className="h-5 w-5 text-green-500 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -100,7 +100,7 @@ export default function AdminDashboardPage() {
 
           {/* Total Ratings - Large Card */}
           <div className="lg:col-span-1 h-full">
-            <div className="h-full p-6 rounded-2xl glassmorphism hover:shadow-lg transition-all duration-300 border border-white/30 dark:border-white/10 group cursor-pointer">
+            <div className="h-full p-6 rounded-2xl bg-white dark:bg-slate-900 hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-slate-800 hover:border-yellow-300 dark:hover:border-yellow-700 group cursor-pointer">
               <div className="flex items-start justify-between mb-4">
                 <div className="text-5xl">⭐</div>
                 <ArrowUpRight className="h-5 w-5 text-green-500 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -113,7 +113,7 @@ export default function AdminDashboardPage() {
 
           {/* Average Rating - Large Card */}
           <div className="lg:col-span-1 h-full">
-            <div className="h-full p-6 rounded-2xl glassmorphism hover:shadow-lg transition-all duration-300 border border-white/30 dark:border-white/10 group cursor-pointer">
+            <div className="h-full p-6 rounded-2xl bg-white dark:bg-slate-900 hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-slate-800 hover:border-purple-300 dark:hover:border-purple-700 group cursor-pointer">
               <div className="flex items-start justify-between mb-4">
                 <div className="text-5xl">📈</div>
                 <ArrowUpRight className="h-5 w-5 text-green-500 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -129,7 +129,7 @@ export default function AdminDashboardPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Users Management */}
           <Link href="/admin/users" className="group">
-            <div className="h-full p-8 rounded-2xl glassmorphism hover:shadow-xl transition-all duration-300 border border-white/30 dark:border-white/10 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 overflow-hidden relative">
+            <div className="h-full p-8 rounded-2xl bg-white dark:bg-slate-900 hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-700 overflow-hidden relative">
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/0 to-indigo-600/0 group-hover:from-indigo-600/5 group-hover:to-indigo-600/10 transition-all duration-300"></div>
               <div className="relative">
                 <div className="text-6xl mb-4">👨‍💼</div>
@@ -145,7 +145,7 @@ export default function AdminDashboardPage() {
 
           {/* Stores Management */}
           <Link href="/admin/stores" className="group">
-            <div className="h-full p-8 rounded-2xl glassmorphism hover:shadow-xl transition-all duration-300 border border-white/30 dark:border-white/10 hover:border-green-500/50 dark:hover:border-green-500/50 overflow-hidden relative">
+            <div className="h-full p-8 rounded-2xl bg-white dark:bg-slate-900 hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-slate-800 hover:border-green-300 dark:hover:border-green-700 overflow-hidden relative">
               <div className="absolute inset-0 bg-gradient-to-br from-green-600/0 to-green-600/0 group-hover:from-green-600/5 group-hover:to-green-600/10 transition-all duration-300"></div>
               <div className="relative">
                 <div className="text-6xl mb-4">🏬</div>
@@ -161,7 +161,7 @@ export default function AdminDashboardPage() {
 
           {/* Analytics */}
           <Link href="/admin/analytics" className="group">
-            <div className="h-full p-8 rounded-2xl glassmorphism hover:shadow-xl transition-all duration-300 border border-white/30 dark:border-white/10 hover:border-purple-500/50 dark:hover:border-purple-500/50 overflow-hidden relative">
+            <div className="h-full p-8 rounded-2xl bg-white dark:bg-slate-900 hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-slate-800 hover:border-purple-300 dark:hover:border-purple-700 overflow-hidden relative">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-600/0 to-purple-600/0 group-hover:from-purple-600/5 group-hover:to-purple-600/10 transition-all duration-300"></div>
               <div className="relative">
                 <div className="text-6xl mb-4">📊</div>
@@ -177,17 +177,17 @@ export default function AdminDashboardPage() {
 
           {/* Reports */}
           <div className="group">
-            <div className="h-full p-8 rounded-2xl glassmorphism hover:shadow-xl transition-all duration-300 border border-white/30 dark:border-white/10 cursor-not-allowed opacity-70">
+            <div className="h-full p-8 rounded-2xl bg-white dark:bg-slate-900 hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-slate-800 cursor-not-allowed opacity-70">
               <div className="text-6xl mb-4">📋</div>
               <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Reports</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Generate and download system reports</p>
-              <Badge className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-0">Coming Soon</Badge>
+              <Badge className="bg-gray-300 dark:bg-slate-700 text-gray-700 dark:text-gray-300 border-0">Coming Soon</Badge>
             </div>
           </div>
 
           {/* System Health */}
           <div className="group">
-            <div className="h-full p-8 rounded-2xl glassmorphism hover:shadow-xl transition-all duration-300 border border-white/30 dark:border-white/10 cursor-not-allowed opacity-70">
+            <div className="h-full p-8 rounded-2xl bg-white dark:bg-slate-900 hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-slate-800 cursor-not-allowed opacity-70">
               <div className="text-6xl mb-4">🔧</div>
               <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">System Health</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Monitor system performance and status</p>
@@ -197,17 +197,17 @@ export default function AdminDashboardPage() {
 
           {/* Settings */}
           <div className="group">
-            <div className="h-full p-8 rounded-2xl glassmorphism hover:shadow-xl transition-all duration-300 border border-white/30 dark:border-white/10 cursor-not-allowed opacity-70">
+            <div className="h-full p-8 rounded-2xl bg-white dark:bg-slate-900 hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-slate-800 cursor-not-allowed opacity-70">
               <div className="text-6xl mb-4">⚙️</div>
               <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Settings</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Configure system settings and preferences</p>
-              <Badge className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-0">Coming Soon</Badge>
+              <Badge className="bg-gray-300 dark:bg-slate-700 text-gray-700 dark:text-gray-300 border-0">Coming Soon</Badge>
             </div>
           </div>
         </div>
 
         {/* Quick Stats Footer */}
-        <div className="mt-12 p-8 rounded-2xl glassmorphism border border-white/30 dark:border-white/10">
+        <div className="mt-12 p-8 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
           <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
             <Activity className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
             Quick Summary

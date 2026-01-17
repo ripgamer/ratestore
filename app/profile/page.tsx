@@ -27,7 +27,7 @@ export default function ProfilePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-slate-950">
         <Loader2 className="h-8 w-8 animate-spin text-indigo-600" />
       </div>
     );
@@ -65,24 +65,24 @@ export default function ProfilePage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-2xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">My Profile</h1>
-          <p className="text-gray-600 mt-1">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">My Profile</h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-1">
             Manage your account information and settings
           </p>
         </div>
 
-        <Card className="p-8">
+        <Card className="p-8 border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900">
           {error && (
-            <Alert variant="destructive" className="mb-6">
-              <AlertDescription>{error}</AlertDescription>
+            <Alert variant="destructive" className="mb-6 border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-900/20">
+              <AlertDescription className="text-red-800 dark:text-red-300">{error}</AlertDescription>
             </Alert>
           )}
 
           {success && (
-            <Alert className="mb-6 bg-green-50 text-green-800 border-green-200">
+            <Alert className="mb-6 bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-300 border-green-200 dark:border-green-900">
               <AlertDescription>{success}</AlertDescription>
             </Alert>
           )}
@@ -101,13 +101,13 @@ export default function ProfilePage() {
                 value={formData.name}
                 onChange={handleChange}
                 disabled={!isEditing}
-                className="disabled:bg-gray-100"
+                className="disabled:bg-gray-100 dark:disabled:bg-slate-800 border-gray-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
               />
             </div>
 
             {/* Email */}
             <div>
-              <Label className="flex items-center gap-2 mb-2">
+              <Label className="flex items-center gap-2 mb-2 text-gray-900 dark:text-white">
                 <Mail className="h-4 w-4" />
                 Email Address
               </Label>
@@ -117,13 +117,13 @@ export default function ProfilePage() {
                 value={formData.email}
                 onChange={handleChange}
                 disabled={!isEditing}
-                className="disabled:bg-gray-100"
+                className="disabled:bg-gray-100 dark:disabled:bg-slate-800 border-gray-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
               />
             </div>
 
             {/* Address */}
             <div>
-              <Label className="flex items-center gap-2 mb-2">
+              <Label className="flex items-center gap-2 mb-2 text-gray-900 dark:text-white">
                 <MapPin className="h-4 w-4" />
                 Address
               </Label>
@@ -133,15 +133,15 @@ export default function ProfilePage() {
                 value={formData.address}
                 onChange={handleChange}
                 disabled={!isEditing}
-                className="disabled:bg-gray-100"
+                className="disabled:bg-gray-100 dark:disabled:bg-slate-800 border-gray-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
               />
             </div>
 
             {/* Role Display */}
             <div>
-              <Label className="mb-2 block">Account Type</Label>
-              <div className="px-4 py-2 bg-gray-50 rounded-md border border-gray-200">
-                <span className="capitalize text-gray-700 font-medium">
+              <Label className="mb-2 block text-gray-900 dark:text-white">Account Type</Label>
+              <div className="px-4 py-2 bg-gray-50 dark:bg-slate-800 rounded-md border border-gray-200 dark:border-slate-700">
+                <span className="capitalize text-gray-700 dark:text-gray-300 font-medium">
                   {user.role.replace("_", " ").toLowerCase()}
                 </span>
               </div>
@@ -149,10 +149,10 @@ export default function ProfilePage() {
 
             {/* Member Since */}
             <div>
-              <Label className="mb-2 block">Member Since</Label>
-              <div className="px-4 py-2 bg-gray-50 rounded-md border border-gray-200">
-                <span className="text-gray-700">
-                  {new Date(user.createdAt).toLocaleDateString()}
+              <Label className="mb-2 block text-gray-900 dark:text-white">Account Information</Label>
+              <div className="px-4 py-2 bg-gray-50 dark:bg-slate-800 rounded-md border border-gray-200 dark:border-slate-700">
+                <span className="text-gray-700 dark:text-gray-300">
+                  Active member
                 </span>
               </div>
             </div>

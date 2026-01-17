@@ -35,7 +35,7 @@ export default function ChangePasswordPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-slate-950">
         <Loader2 className="h-8 w-8 animate-spin text-indigo-600" />
       </div>
     );
@@ -148,32 +148,32 @@ export default function ChangePasswordPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="mb-8">
           <button
             onClick={() => router.back()}
-            className="flex items-center gap-2 text-indigo-600 hover:text-indigo-700 mb-4"
+            className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 mb-4 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             Back
           </button>
-          <h1 className="text-3xl font-bold text-gray-900">Change Password</h1>
-          <p className="text-gray-600 mt-1">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Change Password</h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-1">
             Update your password to keep your account secure
           </p>
         </div>
 
-        <Card className="p-8">
+        <Card className="p-8 border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900">
           {error && (
-            <Alert variant="destructive" className="mb-6">
-              <AlertDescription>{error}</AlertDescription>
+            <Alert variant="destructive" className="mb-6 border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-900/20">
+              <AlertDescription className="text-red-800 dark:text-red-300">{error}</AlertDescription>
             </Alert>
           )}
 
           {success && (
-            <Alert className="mb-6 bg-green-50 text-green-800 border-green-200">
+            <Alert className="mb-6 bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-300 border-green-200 dark:border-green-900">
               <AlertDescription>{success}</AlertDescription>
             </Alert>
           )}
@@ -181,7 +181,7 @@ export default function ChangePasswordPage() {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Current Password */}
             <div>
-              <Label htmlFor="currentPassword" className="flex items-center gap-2 mb-2">
+              <Label htmlFor="currentPassword" className="flex items-center gap-2 mb-2 text-gray-900 dark:text-white">
                 <Lock className="h-4 w-4" />
                 Current Password
               </Label>
@@ -192,11 +192,11 @@ export default function ChangePasswordPage() {
                   type={showPasswords.current ? "text" : "password"}
                   value={formData.currentPassword}
                   onChange={handleChange}
-                  className={
+                  className={`border-gray-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white ${
                     validationErrors.currentPassword
-                      ? "border-red-500"
+                      ? "border-red-500 dark:border-red-500"
                       : ""
-                  }
+                  }`}
                 />
                 <button
                   type="button"
@@ -206,7 +206,7 @@ export default function ChangePasswordPage() {
                       current: !showPasswords.current,
                     })
                   }
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
                 >
                   {showPasswords.current ? (
                     <EyeOff className="h-4 w-4" />
@@ -216,7 +216,7 @@ export default function ChangePasswordPage() {
                 </button>
               </div>
               {validationErrors.currentPassword && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="text-red-500 dark:text-red-400 text-sm mt-1">
                   {validationErrors.currentPassword}
                 </p>
               )}
@@ -224,7 +224,7 @@ export default function ChangePasswordPage() {
 
             {/* New Password */}
             <div>
-              <Label htmlFor="newPassword" className="flex items-center gap-2 mb-2">
+              <Label htmlFor="newPassword" className="flex items-center gap-2 mb-2 text-gray-900 dark:text-white">
                 <Lock className="h-4 w-4" />
                 New Password
               </Label>
@@ -235,9 +235,9 @@ export default function ChangePasswordPage() {
                   type={showPasswords.new ? "text" : "password"}
                   value={formData.newPassword}
                   onChange={handleChange}
-                  className={
-                    validationErrors.newPassword ? "border-red-500" : ""
-                  }
+                  className={`border-gray-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white ${
+                    validationErrors.newPassword ? "border-red-500 dark:border-red-500" : ""
+                  }`}
                 />
                 <button
                   type="button"
@@ -247,7 +247,7 @@ export default function ChangePasswordPage() {
                       new: !showPasswords.new,
                     })
                   }
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
                 >
                   {showPasswords.new ? (
                     <EyeOff className="h-4 w-4" />
@@ -257,15 +257,15 @@ export default function ChangePasswordPage() {
                 </button>
               </div>
               {validationErrors.newPassword && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="text-red-500 dark:text-red-400 text-sm mt-1">
                   {validationErrors.newPassword}
                 </p>
               )}
-              <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-md">
-                <p className="text-xs text-blue-800 font-medium mb-2">
+              <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-900 rounded-md">
+                <p className="text-xs text-blue-800 dark:text-blue-300 font-medium mb-2">
                   Password requirements:
                 </p>
-                <ul className="text-xs text-blue-700 space-y-1">
+                <ul className="text-xs text-blue-700 dark:text-blue-300 space-y-1">
                   <li>
                     • 8-16 characters in length
                   </li>
@@ -281,7 +281,7 @@ export default function ChangePasswordPage() {
 
             {/* Confirm Password */}
             <div>
-              <Label htmlFor="confirmPassword" className="flex items-center gap-2 mb-2">
+              <Label htmlFor="confirmPassword" className="flex items-center gap-2 mb-2 text-gray-900 dark:text-white">
                 <Lock className="h-4 w-4" />
                 Confirm New Password
               </Label>
@@ -292,9 +292,9 @@ export default function ChangePasswordPage() {
                   type={showPasswords.confirm ? "text" : "password"}
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  className={
-                    validationErrors.confirmPassword ? "border-red-500" : ""
-                  }
+                  className={`border-gray-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white ${
+                    validationErrors.confirmPassword ? "border-red-500 dark:border-red-500" : ""
+                  }`}
                 />
                 <button
                   type="button"
@@ -304,7 +304,7 @@ export default function ChangePasswordPage() {
                       confirm: !showPasswords.confirm,
                     })
                   }
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
                 >
                   {showPasswords.confirm ? (
                     <EyeOff className="h-4 w-4" />
@@ -314,7 +314,7 @@ export default function ChangePasswordPage() {
                 </button>
               </div>
               {validationErrors.confirmPassword && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="text-red-500 dark:text-red-400 text-sm mt-1">
                   {validationErrors.confirmPassword}
                 </p>
               )}
@@ -325,7 +325,7 @@ export default function ChangePasswordPage() {
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="flex-1"
+                className="flex-1 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-600 dark:hover:bg-indigo-700 text-white"
               >
                 {isLoading ? (
                   <>

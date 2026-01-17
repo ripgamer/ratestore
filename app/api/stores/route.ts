@@ -19,7 +19,7 @@ export async function GET() {
     const storesWithRating = stores.map((store) => {
       const avgRating =
         store.ratings.length > 0
-          ? store.ratings.reduce((sum, r) => sum + r.value, 0) / store.ratings.length
+          ? store.ratings.reduce((sum: number, r) => sum + r.value, 0) / store.ratings.length
           : 0;
 
       const { ratings, ...rest } = store;
